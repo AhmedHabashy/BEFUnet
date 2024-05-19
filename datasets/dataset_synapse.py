@@ -61,12 +61,12 @@ class Synapse_dataset(Dataset):
             slice_name = self.sample_list[idx].strip('\n')
             data_path = os.path.join(self.data_dir, slice_name)
             data = h5py.File(data_path)
-            image, label = data['image'][:], data['label'][:]
+            image, label = data['image'][:], data['mask'][:]
         else:
             vol_name = self.sample_list[idx].strip('\n')
             filepath = os.path.join(self.data_dir, vol_name)
             data = h5py.File(filepath)
-            image, label = data['image'][:], data['label'][:]
+            image, label = data['image'][:], data['mask'][:]
 
         sample = {'image': image, 'label': label}
         if self.transform:
