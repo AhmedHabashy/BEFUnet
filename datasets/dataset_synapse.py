@@ -59,12 +59,12 @@ class Synapse_dataset(Dataset):
     def __getitem__(self, idx):
         if self.split == "train":
             slice_name = self.sample_list[idx].strip('\n')
-            data_path = os.path.join(self.data_dir, slice_name+'.h5')
+            data_path = os.path.join(self.data_dir, slice_name)
             data = h5py.File(data_path)
             image, label = data['image'][:], data['label'][:]
         else:
             vol_name = self.sample_list[idx].strip('\n')
-            filepath = self.data_dir + "/{}.npy.h5".format(vol_name)
+            filepath = os.path.join(self.data_dir, vol_name)
             data = h5py.File(filepath)
             image, label = data['image'][:], data['label'][:]
 
