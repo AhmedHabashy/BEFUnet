@@ -31,7 +31,8 @@ class RandomGenerator(object):
 
     def __call__(self, sample):
         image, label = sample['image'], sample['label']
-
+        image, label = np.max(image,axis=-1), np.max(images,axis=-1)
+        
         if random.random() > 0.5:
             image, label = random_rot_flip(image, label)
         elif random.random() > 0.5:
