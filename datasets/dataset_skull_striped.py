@@ -72,7 +72,8 @@ class RandomGenerator(object):
                 
         image = torch.from_numpy(image.astype(np.float32)).unsqueeze(0)
         label = torch.from_numpy(label.astype(np.float32))
-        sample = {'image': image, 'label': label.long()}
+        sample['image'] = image
+        sample['label'] = label.long()
         return sample
 
 class transform_test(object):
@@ -119,7 +120,8 @@ class transform_test(object):
         
         image = torch.from_numpy(image.astype(np.float32)).unsqueeze(0)
         label = torch.from_numpy(label.astype(np.float32))
-        sample = {'image': image, 'label': label.long()}
+        sample['image'] = image
+        sample['label'] = label.long()
         return sample
 
 
