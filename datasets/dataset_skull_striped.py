@@ -1,8 +1,8 @@
 import os
 import random
-from scipy import ndimage
 import numpy as np
 import torch
+import nibabel as nib
 from scipy import ndimage
 from scipy.ndimage.interpolation import zoom
 from torch.utils.data import Dataset
