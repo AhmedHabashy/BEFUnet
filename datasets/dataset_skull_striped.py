@@ -6,6 +6,7 @@ import nibabel as nib
 from scipy import ndimage
 from scipy.ndimage.interpolation import zoom
 from torch.utils.data import Dataset
+import cv2
 
 def random_rot_flip(image, label):
     k = np.random.randint(0, 4)
