@@ -5,7 +5,7 @@ import numpy as np
 import torch
 from scipy import ndimage
 from scipy.ndimage.interpolation import zoom
-from torch.utils.data import zoom
+from torch.utils.data import Dataset
 
 def random_rot_flip(image, label):
     k = np.random.randint(0, 4)
