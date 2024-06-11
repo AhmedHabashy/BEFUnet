@@ -139,7 +139,7 @@ class Synapse_dataset(Dataset):
         image = nib.load(data_path_image).get_fdata()
         label = nib.load(data_path_mask).get_fdata()
 
-        sample = {'image': image, 'label': label}
+        sample = {'image': image, 'label': label, 'case_name': slice_name[0]+'/'+slice_name[8:-4]}
         if self.transform:
             sample = self.transform(sample)
         return sample
