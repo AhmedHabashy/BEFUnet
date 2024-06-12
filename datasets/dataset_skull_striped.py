@@ -73,7 +73,7 @@ class RandomGenerator(object):
         image = torch.from_numpy(image.astype(np.float32)).unsqueeze(0)
         label = torch.from_numpy(label.astype(np.float32))
         sample['image'] = image
-        sample['label'] = label.long()
+        sample['label'] = (label/255.0).long()
         return sample
 
 class transform_test(object):
