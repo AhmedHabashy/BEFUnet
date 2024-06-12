@@ -69,7 +69,7 @@ class RandomGenerator(object):
             image = cv2.resize(image,self.output_size)
         if label.shape != self.output_size:
             label = cv2.resize(label,self.output_size)
-                
+        
         image = torch.from_numpy(image.astype(np.float32)).unsqueeze(0)
         label = torch.from_numpy(label.astype(np.float32))
         sample['image'] = image
@@ -121,7 +121,7 @@ class transform_test(object):
         image = torch.from_numpy(image.astype(np.float32)).unsqueeze(0)
         label = torch.from_numpy(label.astype(np.float32))
         sample['image'] = image
-        sample['label'] = label.long()
+        sample['label'] = (label/255.0).long()
         return sample
 
 
